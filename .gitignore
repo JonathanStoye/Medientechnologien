@@ -1,13 +1,26 @@
-/.idea/
-/wave_io/bin/
-/wave_io/.idea/
-/wave_io/.settings/
-/wave_io/diff.wav
-/wave_io/Wav_as_ASCII.txt
-/wave_io/Sprache_Echtzeit.wav
-/wave_io/downsampled.wav
-/wave_io/bitreduced.wav
-/wave_io/original.wav
-/wave_io/Medientechnik.iml
-/wave_io/wave_io.iml
+.idea
+/.DS_Store
+/Medientechnologien.iml
+.DS_Store
+/node_modules
+# See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
