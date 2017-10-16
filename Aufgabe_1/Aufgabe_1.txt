@@ -1,0 +1,34 @@
+2.1
+Sine_hi03.wav hat die Frequenz 6khz
+Sine_lo03.wav hat die Frequenz 3khz;
+
+2.2
+Das Abtasttheorem besagt, dass ein Signal mit mindestens der doppelten Frequenz der maximalen Signalfrequenz abgetastet werden muss.
+
+[Zeichnung einfügen]
+
+2.3
+Das Signal wird um die hohen nicht abtastbaren Frequenzen beschnitten mittels eines Tiefpassfilters.
+
+
+2.4
+Bei sine_hi03.wav erscheint die Frequenz 2000hz;
+Bei sine_lo03.wav weiterhin die Frequenz 3000hz da diese auch bei 8khz noch im abtastbaren Bereichliegt. (Bei 8khz Abtastrate nur noch bis zu 4khz Signalfrequenz darstellbar)
+Würde geeignet Bandbegrenz werden, dann wäre die Frequenz für sine_hi03.wav nach dem Downsampling nicht mehr vorhanden, da alle Frequenzen über 4khz vor dem Downsampling abgeschnitten werden würden.
+Die niedrigere Frequenz sine_lo03.wav würde weiterhin hörbar sein, da sie nicht beschnitten wird.
+
+
+
+3.1
+Bei 8bit: 256 mögliche Amplitudenwerte
+Bei 16bit: 65536 mögliche Amplitudenwerte
+
+3.2 
+Siehe Quelltext
+
+3.3
+Das Sprachsignal bleibt bis ca. 10 Bit Reduktion noch verständlich. Das Quantisierungsgeräusch macht sich in Form von wahrgenommenen Störgeräuschen in Form von Rauschen bemerkbar.
+
+3.4
+Das Quantisierungsrauschen wird lauter je weiter das Signal in seinem Dynamikumfang beschnitten wird. 
+Die Lautstärke des Rauschens korelliert mit der Lautstärke des beschnittenen Signals, d.h. an lauten Stellen ist das Rauschen lauter, da mehr Dynamik abgeschnitten wird, bei leisen Stellen leiser, da weniger Dynamik abgeschnitten wird.
