@@ -82,7 +82,7 @@ public class wave_io {
 
             short reducedSamples[] = new short[samples];
             // 3.2 Bitreduzierung
-            int reduced_bits = 12;
+            int reduced_bits = 14;
             for (int i = 0; i < samples; i++) {
                 short reducedSample = (short) (readWavFile.sound[i] / (int) (Math.pow(2, reduced_bits)));
                 reducedSamples[i] = (short) (reducedSample * (int) (Math.pow(2, reduced_bits)));
