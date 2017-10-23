@@ -39,6 +39,15 @@ public final class bmp_io {
         OutputStream outBitreduced = new FileOutputStream("bitreduced.bmp");
         OutputStream outDiff = new FileOutputStream("difference.bmp");
 
+        try {
+            BmpWriter.write_bmp(out, bmp);
+        } finally
+
+        {
+            out.close();
+        }
+
+
         // erzeuge graustufenbild
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
@@ -106,7 +115,7 @@ public final class bmp_io {
         bmp = BmpReader.read_bmp(in);
 
         // bitreduzierung
-        int reduced_bits = 7;
+        int reduced_bits = 4;
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 PixelColor p = bmp.image.getRgbPixel(x, y);
@@ -164,12 +173,6 @@ public final class bmp_io {
             outDiff.close();
         }
 
-        try {
-            BmpWriter.write_bmp(out, bmp);
-        } finally
 
-        {
-            out.close();
-        }
     }
 }
