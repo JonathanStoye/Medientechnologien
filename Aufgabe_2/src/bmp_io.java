@@ -86,16 +86,21 @@ public final class bmp_io {
         }
 
 
+
+
         // read original bitmap
         bmp = BmpReader.read_bmp(in);
         OutputStream outDownsamplingVertical = new FileOutputStream("downsampling_vertical");
         // downsampling vertical
+
+
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 // ********* ToDo ***************
                 if (y % 2 == 1) {
                     bmp.image.setRgbPixel(x, y, bmp.image.getRgbPixel(x, y-1));
                 }
+
             }
         }
 
@@ -150,15 +155,9 @@ public final class bmp_io {
                 int r = pOriginal.r - bitreduced.r;
                 int g = pOriginal.g - bitreduced.g;
                 int b = pOriginal.b - bitreduced.b;
-                if (r < 0) {
-                    r += 127;
-                }
-                if (g < 0) {
-                    g += 127;
-                }
-                if (b < 0) {
-                    b += 127;
-                }
+                r = Math.abs(r);
+                g = Math.abs(g);
+                b = Math.abs(b);
                 PixelColor diff = new PixelColor(b, g, r);
                 bmpDiff.image.setRgbPixel(x, y, diff);
             }
