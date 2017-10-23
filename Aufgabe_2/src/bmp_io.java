@@ -117,6 +117,9 @@ public final class bmp_io {
                 r *= pow;
                 g *= pow;
                 b *= pow;
+                PixelColor pNew = new PixelColor(b,g,r);
+                bmp.image.setRgbPixel(x,y, pNew);
+
             }
         }
         try {
