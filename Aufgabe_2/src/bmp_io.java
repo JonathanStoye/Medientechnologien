@@ -21,7 +21,7 @@ public final class bmp_io {
         // BGR schreiben horizontal 2.1.
         for (int x = 0; x < bmp.image.getWidth(); x++) {
 
-            writer.println(bmp.image.getRgbPixel(0, x).b + " " + bmp.image.getRgbPixel(0, x).g + " " + bmp.image.getRgbPixel(0, x).r);
+            writer.println(bmp.image.getRgbPixel(x, 0).b + " " + bmp.image.getRgbPixel(x, 0).g + " " + bmp.image.getRgbPixel(x, 0).r);
             // ********* ToDo ***************
         }
 
@@ -29,7 +29,7 @@ public final class bmp_io {
         for (int y = 0; y < bmp.image.getHeight(); y++) {
 
             // ********* ToDo ***************
-            writer.println(bmp.image.getRgbPixel(y, 0).b + " " + bmp.image.getRgbPixel(y, 0).g + " " + bmp.image.getRgbPixel(y, 0).r);
+            writer.println(bmp.image.getRgbPixel(0, y).b + " " + bmp.image.getRgbPixel(0, y).g + " " + bmp.image.getRgbPixel(0, y).r);
 
         }
 
