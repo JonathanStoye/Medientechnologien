@@ -52,7 +52,7 @@ public final class bmp_io {
                 int g = bmp.image.getRgbPixel(x, y).g;
                 int b = bmp.image.getRgbPixel(x, y).b;
                 int mw = (r + g + b) / 3;
-                bmp.image.setRgbPixel(x, y, new PixelColor(b, g, r));
+                bmp.image.setRgbPixel(x, y, new PixelColor(mw, mw, mw));
 
             }
         }
@@ -72,9 +72,9 @@ public final class bmp_io {
                 if (x % 2 == 1) {
                     bmp.image.setRgbPixel(x, y, bmp.image.getRgbPixel(x - 1, y));
                 }
-
             }
         }
+
         try {
             BmpWriter.write_bmp(outDownsampling, bmp);
         } finally
