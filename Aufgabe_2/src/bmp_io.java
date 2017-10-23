@@ -1,5 +1,3 @@
-import jdk.javadoc.internal.doclets.toolkit.util.DocFinder;
-
 import java.io.*;
 
 public final class bmp_io {
