@@ -1,3 +1,5 @@
+import jdk.javadoc.internal.doclets.toolkit.util.DocFinder;
+
 import java.io.*;
 
 public final class bmp_io {
@@ -65,7 +67,7 @@ public final class bmp_io {
         }
 
 
-        // downsampling
+        // downsampling horizontal
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 // ********* ToDo ***************
@@ -77,6 +79,28 @@ public final class bmp_io {
 
         try     {
             BmpWriter.write_bmp(outDownsampling, bmp);
+        } finally
+
+        {
+            out.close();
+        }
+
+
+        // read original bitmap
+        bmp = BmpReader.read_bmp(in);
+        OutputStream outDownsamplingVertical = new FileOutputStream("downsampling_vertical");
+        // downsampling vertical
+        for (int y = 0; y < bmp.image.getHeight(); y++) {
+            for (int x = 0; x < bmp.image.getWidth(); x++) {
+                // ********* ToDo ***************
+                if (y % 2 == 1) {
+                    bmp.image.setRgbPixel(x, y, bmp.image.getRgbPixel(x, y-1));
+                }
+            }
+        }
+
+        try     {
+            BmpWriter.write_bmp(outDownsamplingVertical, bmp);
         } finally
 
         {
