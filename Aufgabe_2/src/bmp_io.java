@@ -35,7 +35,7 @@ public final class bmp_io {
         OutputStream out = new FileOutputStream("original.bmp");
         OutputStream outGrey = new FileOutputStream("graustufenbild.bmp");
         OutputStream outDownsampling = new FileOutputStream("downsampled.bmp");
-        OutputStream outDownsamplingVertical = new FileOutputStream("downsampling_vertical");
+        OutputStream outDownsamplingVertical = new FileOutputStream("downsampling_vertical.bmp");
         OutputStream outBitreduced = new FileOutputStream("bitreduced.bmp");
         OutputStream outDiff = new FileOutputStream("difference.bmp");
 
@@ -58,7 +58,8 @@ public final class bmp_io {
             outGrey.close();
         }
 
-
+        in =new FileInputStream(inFilename);
+        bmp = BmpReader.read_bmp(in);
         // downsampling horizontal
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
@@ -101,8 +102,11 @@ public final class bmp_io {
             outDownsamplingVertical.close();
         }
 
+        in =new FileInputStream(inFilename);
+        bmp = BmpReader.read_bmp(in);
+
         // bitreduzierung
-        int reduced_bits = 1;
+        int reduced_bits = 7;
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 PixelColor p = bmp.image.getRgbPixel(x, y);
@@ -136,8 +140,7 @@ public final class bmp_io {
         int bitsPerColor = 8;
         in =new FileInputStream(inFilename);
         BmpImage bmpOriginal = BmpReader.read_bmp(in);
-        BmpImage bmpDiff = new BmpImage();
-        bmpDiff.image = new RgbImage(bmpOriginal.image.width, bmpOriginal.image.height, 8);
+        BmpImage bmpDiff = (BmpImage)bmpOriginal;
 
         for (int y = 0; y < bmpOriginal.image.getHeight(); y++) {
             for (int x = 0; x < bmpOriginal.image.getWidth(); x++) {
