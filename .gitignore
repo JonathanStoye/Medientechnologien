@@ -25,3 +25,6 @@ yarn-error.log*
 /wave_io/Medientechnik.iml
 /wave_io/wave_io.iml
 /Aufgabe_2/bin
+/Aufgabe_2/.classpath
+/Aufgabe_2/.project
+/Aufgabe_2/bmp_io.iml

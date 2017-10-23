@@ -75,7 +75,7 @@ public final class bmp_io {
             }
         }
 
-        try {
+        try     {
             BmpWriter.write_bmp(outDownsampling, bmp);
         } finally
 
