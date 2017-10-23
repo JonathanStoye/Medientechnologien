@@ -22,6 +22,7 @@ public final class bmp_io {
         for (int x = 0; x < bmp.image.getWidth(); x++) {
             writer.println(bmp.image.getRgbPixel(x, 0).b + " " + bmp.image.getRgbPixel(x, 0).g + " " + bmp.image.getRgbPixel(x, 0).r);
         }
+        writer.close();
 
         writer = new PrintWriter("vertikal.txt", "UTF-8");
         // BGR schreiben vertikal 2.1.
