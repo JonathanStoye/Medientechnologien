@@ -20,17 +20,12 @@ public final class bmp_io {
 
         // BGR schreiben horizontal 2.1.
         for (int x = 0; x < bmp.image.getWidth(); x++) {
-
             writer.println(bmp.image.getRgbPixel(x, 0).b + " " + bmp.image.getRgbPixel(x, 0).g + " " + bmp.image.getRgbPixel(x, 0).r);
-            // ********* ToDo ***************
         }
 
         // BGR schreiben vertikal 2.1.
         for (int y = 0; y < bmp.image.getHeight(); y++) {
-
-            // ********* ToDo ***************
             writer.println(bmp.image.getRgbPixel(0, y).b + " " + bmp.image.getRgbPixel(0, y).g + " " + bmp.image.getRgbPixel(0, y).r);
-
         }
 
         writer.close();
@@ -68,22 +63,19 @@ public final class bmp_io {
         // downsampling horizontal
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-                // ********* ToDo ***************
                 if (x % 2 == 1) {
                     bmp.image.setRgbPixel(x, y, bmp.image.getRgbPixel(x - 1, y));
                 }
             }
         }
 
-        try     {
+        try {
             BmpWriter.write_bmp(outDownsampling, bmp);
         } finally
 
         {
             out.close();
         }
-
-
 
 
         // read original bitmap
@@ -94,15 +86,14 @@ public final class bmp_io {
 
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-                // ********* ToDo ***************
                 if (y % 2 == 1) {
-                    bmp.image.setRgbPixel(x, y, bmp.image.getRgbPixel(x, y-1));
+                    bmp.image.setRgbPixel(x, y, bmp.image.getRgbPixel(x, y - 1));
                 }
 
             }
         }
 
-        try     {
+        try {
             BmpWriter.write_bmp(outDownsamplingVertical, bmp);
         } finally
 
@@ -114,8 +105,6 @@ public final class bmp_io {
         int reduced_bits = 1;
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-
-                // ********* ToDo ***************
                 PixelColor p = bmp.image.getRgbPixel(x, y);
                 int r = p.r;
                 int g = p.g;
@@ -147,7 +136,6 @@ public final class bmp_io {
 
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
-                // ********* ToDo ***************
                 PixelColor pOriginal = bmpOriginal.image.getRgbPixel(x, y);
                 PixelColor bitreduced = bmp.image.getRgbPixel(x, y);
                 int r = pOriginal.r - bitreduced.r;
