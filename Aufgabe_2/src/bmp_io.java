@@ -55,7 +55,7 @@ public final class bmp_io {
         } finally
 
         {
-            out.close();
+            outGrey.close();
         }
 
 
@@ -73,11 +73,12 @@ public final class bmp_io {
         } finally
 
         {
-            out.close();
+            outDownsampling.close();
         }
 
 
-        // read original bitmap
+        // read original bitmap again
+        in =new FileInputStream(inFilename);
         bmp = BmpReader.read_bmp(in);
 
         // downsampling vertical
@@ -97,7 +98,7 @@ public final class bmp_io {
         } finally
 
         {
-            out.close();
+            outDownsamplingVertical.close();
         }
 
         // bitreduzierung
@@ -126,18 +127,20 @@ public final class bmp_io {
         } finally
 
         {
-            out.close();
+            outBitreduced.close();
         }
 
 
         // bitreduzierung differenz
         reduced_bits = 1;
         int bitsPerColor = 8;
+        in =new FileInputStream(inFilename);
         BmpImage bmpOriginal = BmpReader.read_bmp(in);
         BmpImage bmpDiff = new BmpImage();
+        bmpDiff.image = new RgbImage(bmpOriginal.image.width, bmpOriginal.image.height, 8);
 
-        for (int y = 0; y < bmp.image.getHeight(); y++) {
-            for (int x = 0; x < bmp.image.getWidth(); x++) {
+        for (int y = 0; y < bmpOriginal.image.getHeight(); y++) {
+            for (int x = 0; x < bmpOriginal.image.getWidth(); x++) {
                 PixelColor pOriginal = bmpOriginal.image.getRgbPixel(x, y);
                 PixelColor bitreduced = bmp.image.getRgbPixel(x, y);
                 int r = pOriginal.r - bitreduced.r;
@@ -155,7 +158,7 @@ public final class bmp_io {
         } finally
 
         {
-            out.close();
+            outDiff.close();
         }
 
         try {

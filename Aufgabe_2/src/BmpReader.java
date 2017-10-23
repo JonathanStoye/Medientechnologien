@@ -33,6 +33,7 @@ public final class BmpReader {
 		// BITMAPFILEHEADER (14 bytes)
 		int fileSize;
 		int imageDataOffset;
+
 		if(in1.readInt16() != 0x4D42)  // "BM"
 			throw new RuntimeException("Invalid BMP signature");
 	
