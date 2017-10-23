@@ -28,7 +28,7 @@ Spektralanalyse mit GRAM zeigt 3000 Hz.
 [Plot einfügen]
 
 2.2
-Das Abtasttheorem besagt, dass ein Signal mit mindestens der doppelten Frequenz der maximalen Signalfrequenz abgetastet werden muss, also das Abtastfrequenz fa > 2 * fmax gilt. Der theoretische Grenzfall ist, wenn mit genau dieser doppelten Frequenz abgetastet wird. In diesem Fall wird die höchste Frequenz pro Periode je 2x abgetastet.
+Das Abtasttheorem besagt, dass ein Signal mit mindestens der doppelten Frequenz der maximalen Signalfrequenz abgetastet werden muss, also das Abtastfrequenz fa >= 2 * fmax gilt. Der theoretische Grenzfall ist, wenn mit genau dieser doppelten Frequenz abgetastet wird. In diesem Fall wird die höchste Frequenz pro Periode je 2x abgetastet.
 
 [Zeichnung einfügen]
 
