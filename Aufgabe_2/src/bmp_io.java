@@ -15,7 +15,7 @@ public final class bmp_io {
         inFilename = args[0];
         InputStream in = new FileInputStream(inFilename);
         bmp = BmpReader.read_bmp(in);
-        PrintWriter writer = new PrintWriter(outFilename, "UTF-8");
+        PrintWriter writer = new PrintWriter("horizontal.txt", "UTF-8");
 
 
         // BGR schreiben horizontal 2.1.
@@ -23,6 +23,7 @@ public final class bmp_io {
             writer.println(bmp.image.getRgbPixel(x, 0).b + " " + bmp.image.getRgbPixel(x, 0).g + " " + bmp.image.getRgbPixel(x, 0).r);
         }
 
+        writer = new PrintWriter("vertikal.txt", "UTF-8");
         // BGR schreiben vertikal 2.1.
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             writer.println(bmp.image.getRgbPixel(0, y).b + " " + bmp.image.getRgbPixel(0, y).g + " " + bmp.image.getRgbPixel(0, y).r);
@@ -33,10 +34,10 @@ public final class bmp_io {
         if (args.length == 1)
             System.exit(0);
 
-        outFilename = args[1];
-        OutputStream out = new FileOutputStream(outFilename);
+        OutputStream out = new FileOutputStream("original.bmp");
         OutputStream outGrey = new FileOutputStream("graustufenbild.bmp");
         OutputStream outDownsampling = new FileOutputStream("downsampled.bmp");
+        OutputStream outDownsamplingVertical = new FileOutputStream("downsampling_vertical");
         OutputStream outBitreduced = new FileOutputStream("bitreduced.bmp");
         OutputStream outDiff = new FileOutputStream("difference.bmp");
 
@@ -80,7 +81,7 @@ public final class bmp_io {
 
         // read original bitmap
         bmp = BmpReader.read_bmp(in);
-        OutputStream outDownsamplingVertical = new FileOutputStream("downsampling_vertical");
+
         // downsampling vertical
 
 
