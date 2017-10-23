@@ -31,9 +31,6 @@ public final class bmp_io {
 
         writer.close();
 
-        if (args.length == 1)
-            System.exit(0);
-
         OutputStream out = new FileOutputStream("original.bmp");
         OutputStream outGrey = new FileOutputStream("graustufenbild.bmp");
         OutputStream outDownsampling = new FileOutputStream("downsampled.bmp");
