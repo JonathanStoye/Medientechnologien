@@ -1,0 +1,30 @@
+Aufgabe 1 fertig
+
+Headerangaben
+Filesize: Höhe * Breite * (Anzahl Komponenten) + Headersize (54 Byte)
+BitsperPixel: Anzahl der Bits zur Pixeldarstellung (8 Bit pro Farbkanal bei RGB)
+Höhe: Höhe des Bildes in Pixeln
+Breite: Breite des Bildes in Pixeln
+
+
+Aufgabe 2
+2.1 fertig
+Vertikal: Periodenlänge = 11 Samples
+Horizontal: Periodenlänge = 11 Samples
+2.2 Bild erstellen
+Periodendauer >= 2Pixel
+
+
+2.3 fertig
+2.4 
+Aliasing kann entstehen wenn das Bild eine höhere Auflösung hat als die Kamera. In diesem Fall können Details verloren gehen oder von der Kamera falsch aufgenommen werden. Es kann z.B. ein Moiré-Effekt entstehen.
+Bei Videos tritt der Wagon-Wheel-Effekt auf, da das Objekt vor der Linse sich schneller bewegt als mit der Kamera neue Bilder aufgenommen werden. 
+
+2.5
+Das horizontale Downsampling ergibt nur Sinn bei dem Bild grating_H1.bmp, da das dargestellte Muster nicht symmetrisch zur x-achse verläuft. Bei der anderen Datei hätte ein Downsampling keine visuellen Auswirkungen.
+Bei den eigenen Bildern entsteht eine Verschlechterung bereits ab einer downgesampleten Zeile.
+
+2.5 implementiert
+3.1 implementiert
+3.2 ab 4 Bit Reduktion fällt eine Verdunklung des Bildes auf. Ab 5 bit Reduktion wird eine merkbar größere Differenz zwischen den Farben sichtbar
+3.3 implementiert
