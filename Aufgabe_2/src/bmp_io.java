@@ -92,14 +92,11 @@ public final class bmp_io {
         bmp = BmpReader.read_bmp(in);
 
         // downsampling vertical
-
-
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 if (y % 2 == 1) {
                     bmp.image.setRgbPixel(x, y, bmp.image.getRgbPixel(x, y - 1));
                 }
-
             }
         }
 
@@ -115,7 +112,7 @@ public final class bmp_io {
         bmp = BmpReader.read_bmp(in);
 
         // bitreduzierung
-        int reduced_bits = 4;
+        int reduced_bits = 6;
         for (int y = 0; y < bmp.image.getHeight(); y++) {
             for (int x = 0; x < bmp.image.getWidth(); x++) {
                 PixelColor p = bmp.image.getRgbPixel(x, y);
