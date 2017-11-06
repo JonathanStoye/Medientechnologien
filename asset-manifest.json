@@ -1,7 +1,12 @@
 {
-  "main.css": "static/css/main.c17080f1.css",
-  "main.css.map": "static/css/main.c17080f1.css.map",
-  "main.js": "static/js/main.d9f68e98.js",
-  "main.js.map": "static/js/main.d9f68e98.js.map",
-  "static/media/logo.svg": "static/media/logo.5d5d9eef.svg"
+  "main.css": "static/css/main.03edf2ae.css",
+  "main.css.map": "static/css/main.03edf2ae.css.map",
+  "main.js": "static/js/main.d1414337.js",
+  "main.js.map": "static/js/main.d1414337.js.map",
+  "static/media/abtasttheorem_grenzfall.jpg": "static/media/abtasttheorem_grenzfall.3b94395e.jpg",
+  "static/media/diff_bitreduced_8.wav": "static/media/diff_bitreduced_8.527183b8.wav",
+  "static/media/sine_hi.PNG": "static/media/sine_hi.f1d80e16.PNG",
+  "static/media/sine_hi_downsampled.PNG": "static/media/sine_hi_downsampled.35745b3c.PNG",
+  "static/media/sine_low.PNG": "static/media/sine_low.334dad91.PNG",
+  "static/media/sine_low_downsampled.PNG": "static/media/sine_low_downsampled.f59af073.PNG"
 }
