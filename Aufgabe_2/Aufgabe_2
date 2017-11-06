@@ -1,5 +1,3 @@
-Aufgabe 1 fertig
-
 Headerangaben
 Filesize: Höhe * Breite * (Anzahl Komponenten) + Headersize (54 Byte)
 BitsperPixel: Anzahl der Bits zur Pixeldarstellung (8 Bit pro Farbkanal bei RGB)
@@ -11,20 +9,26 @@ Aufgabe 2
 2.1 fertig
 Vertikal: Periodenlänge = 11 Samples
 Horizontal: Periodenlänge = 11 Samples
-2.2 Bild erstellen
+
+2.2
 Periodendauer >= 2Pixel
 
+2.3 
+Der Grauwert errechnet sich aus dem Mittelwert über den Rot, Grün und Blauwert. Eigentlich müssten die 3 Werte entsprechend der Empfindlichkeit des Auges noch gewichtet werden. Unter Java passiert dies automatisch, da die Helligkeitswerte pro Farbkanal bereits gewichtet sind.
 
-2.3 fertig
 2.4 
 Aliasing kann entstehen wenn das Bild eine höhere Auflösung hat als die Kamera. In diesem Fall können Details verloren gehen oder von der Kamera falsch aufgenommen werden. Es kann z.B. ein Moiré-Effekt entstehen.
 Bei Videos tritt der Wagon-Wheel-Effekt auf, da das Objekt vor der Linse sich schneller bewegt als mit der Kamera neue Bilder aufgenommen werden. 
 
 2.5
 Das horizontale Downsampling ergibt nur Sinn bei dem Bild grating_H1.bmp, da das dargestellte Muster nicht symmetrisch zur x-achse verläuft. Bei der anderen Datei hätte ein Downsampling keine visuellen Auswirkungen.
-Bei den eigenen Bildern entsteht eine Verschlechterung bereits ab einer downgesampleten Zeile.
+Bei den eigenen Bildern entsteht eine Verschlechterung bereits ab einer downgesampleten Zeile. Der auftretende Effekt tritt in Form von Verpixelung, allerdings nur entlang der schwarzen Linien auf.
 
-2.5 implementiert
-3.1 implementiert
-3.2 ab 4 Bit Reduktion fällt eine Verdunklung des Bildes auf. Ab 5 bit Reduktion wird eine merkbar größere Differenz zwischen den Farben sichtbar
-3.3 implementiert
+3.2 
+
+Details:
+Ab 4 Bit Reduktion fällt eine Verdunklung des Bildes auf. Ab 5 bit Reduktion wird eine merkbar größere Differenz zwischen den Farben sichtbar
+
+Flächen:
+Bei den Flächen fällt ab 4 Bit Reduktion eine deutliche Erhöhung des Kontrastes auf. Unregelmäßgkeiten auf der Fläche treten deutlicher auf. Ab 5 Bit tritt eine deutliche Verfälschung der Farben auf. Die gering vorhanden Rot-Töne im Bild werden extrem verstärkt dargestellt.
+
