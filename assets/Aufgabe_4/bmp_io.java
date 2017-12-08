@@ -190,10 +190,6 @@ public final class bmp_io {
         in = new FileInputStream(inFilename);
         BmpImage bmpCr = BmpReader.read_bmp(in);
 
-        in = new FileInputStream(inFilename);
-        BmpImage bmpBackConvert = BmpReader.read_bmp(in);
-
-
         OutputStream outRed = new FileOutputStream("red.bmp");
         for (int y = 0; y < bmpRed.image.getHeight(); y++) {
             for (int x = 0; x < bmpRed.image.getWidth(); x++) {
@@ -251,7 +247,6 @@ public final class bmp_io {
         OutputStream outY = new FileOutputStream("Y.bmp");
         OutputStream outCb = new FileOutputStream("Cb.bmp");
         OutputStream outCr = new FileOutputStream("Cr.bmp");
-        OutputStream outBackConvert = new FileOutputStream("ycbcrToRGB.bmp");
 
         in = new FileInputStream(inFilename);
         bmpOriginal = BmpReader.read_bmp(in);
@@ -261,7 +256,6 @@ public final class bmp_io {
             for (int x = 0; x < bmpOriginal.image.getWidth(); x++) {
                 PixelColor pOriginal = bmpOriginal.image.getRgbPixel(x, y);
                 PixelColor yCbCr = rgbToYCbCr(pOriginal);
-                PixelColor backConvert = ycbcrTorgb(yCbCr);
                 PixelColor pY = new PixelColor(128, 128, yCbCr.r);
                 PixelColor pCb = new PixelColor(0, yCbCr.g, 0);
                 PixelColor pCr = new PixelColor(yCbCr.b, 0, 0);
@@ -273,14 +267,12 @@ public final class bmp_io {
                 bmpY.image.setRgbPixel(x, y, pY);
                 bmpCb.image.setRgbPixel(x, y, pCb);
                 bmpCr.image.setRgbPixel(x, y, pCr);
-                bmpBackConvert.image.setRgbPixel(x, y, backConvert);
             }
         }
         try {
             BmpWriter.write_bmp(outY, bmpY);
             BmpWriter.write_bmp(outCb, bmpCb);
             BmpWriter.write_bmp(outCr, bmpCr);
-            BmpWriter.write_bmp(outBackConvert, bmpBackConvert);
         } finally
 
         {
@@ -309,6 +301,7 @@ public final class bmp_io {
         System.out.println("Standardabweichung: " + stdabw);
 
 
+
         // Aufgabe 3 b Helligkeit
         for (int i = -250; i < 256; i += 20) {
             in = new FileInputStream(inFilename);
@@ -332,6 +325,7 @@ public final class bmp_io {
         calcAndSaveHistogram(bmpOriginal, "high_brightness.txt");
 
 
+
         // Aufgabe 3 c Kontrast
         writeAndCalcContrastImage(0.2, inFilename);
 
@@ -339,7 +333,7 @@ public final class bmp_io {
         in = new FileInputStream(inFilename);
         bmpOriginal = BmpReader.read_bmp(in);
         applyContrastToImage(0.2, bmpOriginal);
-        calcAndSaveHistogram(bmpOriginal, "low_contrast.txt");
+        calcAndSaveHistogram(bmpOriginal,"low_contrast.txt");
 
         writeAndCalcContrastImage(0.4, inFilename);
         writeAndCalcContrastImage(0.8, inFilename);
@@ -353,7 +347,7 @@ public final class bmp_io {
         in = new FileInputStream(inFilename);
         bmpOriginal = BmpReader.read_bmp(in);
         applyContrastToImage(10.0, bmpOriginal);
-        calcAndSaveHistogram(bmpOriginal, "high_contrast.txt");
+        calcAndSaveHistogram(bmpOriginal,"high_contrast.txt");
 
         writeAndCalcContrastImage(-1.0, inFilename);
     }
