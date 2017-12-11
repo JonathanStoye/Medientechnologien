@@ -309,6 +309,7 @@ public final class bmp_io {
         System.out.println("Standardabweichung: " + stdabw);
 
 
+        inFilename = "Y.bmp";
         // Aufgabe 3 b Helligkeit
         for (int i = -250; i < 256; i += 20) {
             in = new FileInputStream(inFilename);
